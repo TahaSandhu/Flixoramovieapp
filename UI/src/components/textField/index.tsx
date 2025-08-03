@@ -14,6 +14,7 @@ const TextInput = ({
   rows,
   error,
   placeholder,
+  sx
 }: TextInputProps) => {
   return (
     <Box>
@@ -41,6 +42,7 @@ const TextInput = ({
             multiline={multiline}
             placeholder={placeholder}
             error={Boolean(error)}
+            sx={sx}
           />
         )}
       />
