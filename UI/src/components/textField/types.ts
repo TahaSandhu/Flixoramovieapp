@@ -9,4 +9,5 @@ export interface TextInput {
   multiline?: boolean;
   error?: string;
   placeholder?: string;
+  sx?: any;
 }
