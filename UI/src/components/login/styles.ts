@@ -14,14 +14,14 @@ export const useStyles = (theme: Theme) => ({
 
   card: {
     width: "100%",
-    maxWidth: "400px",
+    maxWidth: "350px",
     padding: theme.spacing(4),
     borderRadius: theme.spacing(2),
     display: "flex",
     flexDirection: "column",
     gap: theme.spacing(3),
     backdropFilter: "blur(12px)",
-    backgroundColor: "rgba(255, 255, 255, 0.07)",
+    backgroundColor: "#DDDDDD",
     border: "1px solid rgba(0, 0, 0, 0.2)",
     boxShadow: "0 8px 24px rgba(0, 0, 0, 0.4)",
     color: "#000",
@@ -65,7 +65,9 @@ export const useStyles = (theme: Theme) => ({
   } as SxProps<Theme>,
 
   inputStyles: {
-    input: { color: "#000" },
+    input: {
+      color: "#000",
+    },
     "& .MuiInputLabel-root": {
       color: "#000",
       "&.Mui-focused": {
@@ -73,6 +75,8 @@ export const useStyles = (theme: Theme) => ({
       },
     },
     "& .MuiOutlinedInput-root": {
+      color: "#000",
+      backgroundColor: "#fff",
       "& fieldset": {
         borderColor: "#00a4aa",
       },

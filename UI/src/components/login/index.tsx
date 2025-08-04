@@ -28,23 +28,25 @@ const Login = () => {
             onSubmit={methods.handleSubmit(onSubmit)}
             style={{ width: "100%" }}
           >
-            <TextInput
-              name="username"
-              label="Username"
-              placeholder="Enter username"
-              control={methods.control}
-              error={methods.formState.errors?.username?.message}
-              sx={styles.inputStyles}
-            />
-            <TextInput
-              name="password"
-              label="Password"
-              placeholder="Enter password"
-              control={methods.control}
-              error={methods.formState.errors?.password?.message}
-              type="password"
-              sx={styles.inputStyles}
-            />
+            <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+              <TextInput
+                name="username"
+                label="Username"
+                placeholder="Enter username"
+                control={methods.control}
+                error={methods.formState.errors?.username?.message}
+                sx={styles.inputStyles}
+              />
+              <TextInput
+                name="password"
+                label="Password"
+                placeholder="Enter password"
+                control={methods.control}
+                error={methods.formState.errors?.password?.message}
+                type="password"
+                sx={styles.inputStyles}
+              />
+            </Box>
             <Button
               fullWidth
               variant="contained"
@@ -54,9 +56,9 @@ const Login = () => {
               Login
             </Button>
             <Typography sx={styles.footerText}>
-              New user?{" "}
+              Not a member?{" "}
               <Link href="/signup" underline="hover" sx={styles.link}>
-                Signin
+                Sign In
               </Link>
             </Typography>
           </form>
