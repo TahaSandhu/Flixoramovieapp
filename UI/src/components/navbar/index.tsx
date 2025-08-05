@@ -15,10 +15,13 @@ import {
   Avatar,
   Menu,
   MenuItem,
+  Divider,
+  ListItemIcon,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-
-const navItems = ["Home", "About", "Services", "Contact"];
+import CloseIcon from "@mui/icons-material/Close";
+import Logout from "@mui/icons-material/Logout";
+import { NAVITEMS } from "./constants";
 
 const Navbar = () => {
   const theme = useTheme();
@@ -40,22 +43,32 @@ const Navbar = () => {
 
   const drawer = (
     <Box
-      onClick={handleDrawerToggle}
       sx={{
-        textAlign: "center",
-        width: 250,
         backgroundImage: "linear-gradient(45deg, #00a4aa, #000)",
         color: "white",
-        boxShadow: 3,
+        width: "100vw",
         height: "100vh",
+        position: "relative",
+        p: 2,
       }}
     >
-      <Typography variant="h6" sx={{ my: 2 }}>
+      <IconButton
+        onClick={handleDrawerToggle}
+        sx={{
+          position: "absolute",
+          top: 8,
+          right: 8,
+          color: "white",
+        }}
+      >
+        <CloseIcon />
+      </IconButton>
+      <Typography variant="h6" sx={{ my: 2, textAlign: "center" }}>
         Flixora
       </Typography>
-      <List>
-        {navItems.map((item) => (
-          <ListItemButton key={item}>
+      <List sx={{ ml: 2 }}>
+        {NAVITEMS.map((item) => (
+          <ListItemButton key={item} onClick={handleDrawerToggle}>
             <ListItemText primary={item} />
           </ListItemButton>
         ))}
@@ -79,7 +92,7 @@ const Navbar = () => {
           </Typography>
           {!isMobile && (
             <Box sx={{ flexGrow: 1, display: "flex", gap: 2 }}>
-              {navItems.map((item) => (
+              {NAVITEMS.map((item) => (
                 <Button key={item} sx={{ color: "white" }}>
                   {item}
                 </Button>
@@ -116,22 +129,52 @@ const Navbar = () => {
         {drawer}
       </Drawer>
       <Menu
-        id="demo-positioned-menu"
-        aria-labelledby="demo-positioned-button"
         anchorEl={anchorEl}
+        id="account-menu"
         open={open}
         onClose={handleClose}
-        anchorOrigin={{
-          vertical: "top",
-          horizontal: "left",
+        onClick={handleClose}
+        slotProps={{
+          paper: {
+            elevation: 0,
+            sx: {
+              overflow: "visible",
+              filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
+              mt: 1.5,
+              "& .MuiAvatar-root": {
+                width: 32,
+                height: 32,
+                ml: -0.5,
+                mr: 1,
+              },
+              "&::before": {
+                content: '""',
+                display: "block",
+                position: "absolute",
+                top: 0,
+                right: 14,
+                width: 10,
+                height: 10,
+                bgcolor: "background.paper",
+                transform: "translateY(-50%) rotate(45deg)",
+                zIndex: 0,
+              },
+            },
+          },
         }}
-        transformOrigin={{
-          vertical: "top",
-          horizontal: "left",
-        }}
+        transformOrigin={{ horizontal: "right", vertical: "top" }}
+        anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
+        <MenuItem onClick={handleClose}>
+          <Avatar /> Profile
+        </MenuItem>
+        <Divider />
+        <MenuItem onClick={handleClose}>
+          <ListItemIcon>
+            <Logout fontSize="small" />
+          </ListItemIcon>
+          Logout
+        </MenuItem>
       </Menu>
     </>
   );
