@@ -1,9 +1,9 @@
-import SignIn from "./components/signin";
+import Navbar from "./components/navbar";
 
 function App() {
   return (
     <>
-      <SignIn/>
+      <Navbar />
     </>
   );
 }
