@@ -1,5 +1,4 @@
 import { SxProps, Theme } from "@mui/material/styles";
-import { SxProps, Theme } from "@mui/material/styles";
 
 export const useStyles = (theme: Theme) => ({
   page: {
