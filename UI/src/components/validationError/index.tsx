@@ -1,5 +1,5 @@
 import FormHelperText from "@mui/material/FormHelperText";
-import type { ValidationErrorType } from "./types";
+import { ValidationErrorType } from "./types";
 
 const ValidationError = ({ message }: ValidationErrorType) => {
   return (

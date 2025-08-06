@@ -1,6 +1,6 @@
 import { Controller } from "react-hook-form";
 import { Box, InputLabel, TextField, Typography } from "@mui/material";
-import type { TextInput as TextInputProps } from "./types";
+import { TextInput as TextInputProps } from "./types";
 import ValidationError from "../validationError";
 
 const TextInput = ({
@@ -14,6 +14,7 @@ const TextInput = ({
   rows,
   error,
   placeholder,
+  sx,
 }: TextInputProps) => {
   return (
     <Box>
@@ -41,6 +42,7 @@ const TextInput = ({
             multiline={multiline}
             placeholder={placeholder}
             error={Boolean(error)}
+            sx={sx}
           />
         )}
       />
