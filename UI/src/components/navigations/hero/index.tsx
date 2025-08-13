@@ -1,5 +1,5 @@
-import bgdonut1 from './image/bg-donut-1.png'
-import bgdonut2 from './image/bg-donut-2.png'
+import bgimage1 from './image/bg-image-1.png'
+import bgimage2 from './image/bg-image-2.png'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, EffectCoverflow, Autoplay } from 'swiper/modules'
@@ -76,8 +76,8 @@ const Carousel = () => {
         ))}
       </Swiper>
 
-      <img src={bgdonut1} alt="bg image" className='bgdonut1' />
-      <img src={bgdonut2} alt="bg image" className='bgdonut2' />
+      <img src={bgimage1} alt="bg image" className='bgdonut1' />
+      <img src={bgimage2} alt="bg image" className='bgdonut2' />
     </div>
   )
 }
